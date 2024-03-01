@@ -1,0 +1,77 @@
+
+//+------------------------------------------------------------------+
+//|                                                     Shredderline |
+//|                              Developer's Site - forexroboteasy.com|
+//|                         Development - Forex Robot Easy Team       |
+//+------------------------------------------------------------------+
+
+// Define indicator properties
+#property indicator_chart_window
+#property indicator_buffers 1
+#property indicator_plots 2
+#property indicator_color1 SteelBlue
+#property indicator_color2 Tomato
+#property indicator_width1 2
+#property indicator_width2 2
+
+// Define buffer arrays
+double DrawPathBuffer[];
+double CropBuffer[];
+
+// Initialize indicator
+int OnInit()
+{
+    // Set buffer arrays
+    SetIndexBuffer(0, DrawPathBuffer);
+    SetIndexBuffer(1, CropBuffer);
+
+    // Set indicator labels
+    PlotIndexSetString(0, PLOT_LABEL, 'Draw Path');
+    PlotIndexSetString(1, PLOT_LABEL, 'Crop');
+
+    // Set indicator styles
+    PlotIndexSetInteger(0, PLOT_STYLE, STYLE_ZIGZAG);
+    PlotIndexSetInteger(1, PLOT_STYLE, STYLE_SOLID);
+
+    // Set indicator colors
+    PlotIndexSetInteger(0, PLOT_LINE_COLOR, indicator_color1);
+    PlotIndexSetInteger(1, PLOT_LINE_COLOR, indicator_color2);
+
+    // Check if Crop function is enabled
+    if (IsOptionEnabled(CROP_FUNCTION))
+    {
+        // Display crop button in Drawing menu panel
+        DisplayCropButton();
+    }
+
+    return(INIT_SUCCEEDED);
+}
+
+// Check if Crop function is enabled
+bool IsOptionEnabled(int option)
+{
+    bool enabled = false;
+
+    // Check option value
+    if (option == CROP_FUNCTION)
+    {
+        // Enable Crop function
+        enabled = true;
+    }
+
+    return enabled;
+}
+
+// Display crop button in Drawing menu panel
+void DisplayCropButton()
+{
+    // TODO: Implement code to display crop button
+}
+
+// Crop desired areas of the chart
+void CropChart()
+{
+    // TODO: Implement code to crop chart
+}
+
+//+------------------------------------------------------------------+
